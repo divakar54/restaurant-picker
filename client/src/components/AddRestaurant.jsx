@@ -1,9 +1,10 @@
 import React from "react";
 
 const AddRestaurant = () => {
+
   return (
    <div>
-     Form to add Restaurant
+     Add Restaurant
    </div>
   );
 };
