@@ -1,0 +1,8 @@
+POST http://localhost:3001/api/v1/orders
+Content-Type: application/json
+
+{
+    "orderAmount" : "12", 
+    "productName" : "Oregano", 
+    "price" : "120"
+}
