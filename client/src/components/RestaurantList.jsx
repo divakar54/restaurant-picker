@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import RestaurantFinder from "../apis/RestaurantFinder";
+import  {RestaurantURL}  from "../apis/RestaurantFinder";
 import { RestaurantContext } from "../context/RestaurantContext";
 import DisplayRestaurant from '../components/DisplayRestaurant.js';
 import { Flex, Box } from "@chakra-ui/layout";
@@ -9,7 +9,7 @@ const RestaurantList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await RestaurantFinder.get("/");
+        const response = await RestaurantURL.get("/");
         setRestaurants(response.data);
       } catch (error) {
         console.error(error);

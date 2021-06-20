@@ -1,1 +1,1 @@
-GET http://localhost:3001/api/v1/orders/top-rated
+GET http://localhost:3001/api/v1/orders

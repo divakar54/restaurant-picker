@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import RestaurantFinder from "../apis/RestaurantFinder";
+import {RestaurantURL} from "../apis/RestaurantFinder";
 import {Box, Flex} from '@chakra-ui/react';
 const AddRestaurant = () => {
 
@@ -8,7 +8,7 @@ const AddRestaurant = () => {
   const [location, setLocation] = useState('');
 
   const handleOnSubmit = async() => {
-      const res = await RestaurantFinder.post('/', {
+      const res = await RestaurantURL.post('/', {
         name: name,
         location: location,
         price: price
