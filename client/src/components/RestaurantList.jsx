@@ -1,15 +1,16 @@
 import React, { useContext, useEffect } from "react";
 import RestaurantFinder from "../apis/RestaurantFinder";
 import { RestaurantContext } from "../context/RestaurantContext";
+import DisplayRestaurant from '../components/DisplayRestaurant.js';
+import { Flex, Box } from "@chakra-ui/layout";
 
 const RestaurantList = () => {
   const { restaurants, setRestaurants } = useContext(RestaurantContext)
-   
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await RestaurantFinder.get("/");
-        setRestaurants(response.data[0].name);
+        setRestaurants(response.data);
       } catch (error) {
         console.error(error);
       }
@@ -18,9 +19,21 @@ const RestaurantList = () => {
   }, []);
 
   return (
-    <div>
-      List all the restaurant
-    </div>
+    <Flex justifyContent="center">
+    <Box >
+      {
+        restaurants
+            .map(rest => 
+              <DisplayRestaurant 
+                          className='container'
+                          key={rest._id} 
+                          name={rest.name} 
+                          location={rest.location} 
+                          price={rest.price}
+              />)
+      }
+    </Box>
+    </Flex>
   );
 };
 
