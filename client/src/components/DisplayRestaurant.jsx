@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom'
                 p="6" 
                 borderRadius="base">
                 
-                    <Image src='https://bit.ly/2Z4KKcF' alt="butrger phoyo" borderRadius="base"/>
+                    <Image src={props.imageURL} alt={props.name} borderRadius="base"/>
                 
                 <Box  
                     textTransform="uppercase"

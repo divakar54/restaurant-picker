@@ -1,33 +1,40 @@
 import React, {useState, useEffect} from "react";
 import {RestaurantURL} from "../apis/RestaurantFinder";
-import {Box, Flex} from '@chakra-ui/react';
+import {Box, Flex, Button, Text} from '@chakra-ui/react';
+
 const AddRestaurant = () => {
 
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [location, setLocation] = useState('');
+  const [imageURL, setImageURL] = useState('');
 
   const handleOnSubmit = async() => {
+    
       const res = await RestaurantURL.post('/', {
         name: name,
         location: location,
-        price: price
+        price: price,
+        image: imageURL
       })
+      console.log("hey")
       setName('');
       setPrice('');
       setLocation('');
+      setImageURL('');
       console.log(res);
   }
-
+  
   return (
    <div>
      <form onSubmit={e => {
        e.preventDefault();
+       
        handleOnSubmit();
      }}>
-       <Box>
+       <Box mb="2">
        <label htmlFor="Restaurant Name">
-         Restaurant Name
+         <Text>Restaurant Name</Text>
          <input 
               id="name"
               value={name}
@@ -36,9 +43,9 @@ const AddRestaurant = () => {
          />
        </label>
        </Box>
-       <Box>
-       <label htmlFor="Restaurant price">
-         Price for Two
+       <Box mb="2">
+        <label htmlFor="Restaurant price">
+         <Text>Price for Two</Text>
          <input 
               id="name"
               value={price}
@@ -47,9 +54,9 @@ const AddRestaurant = () => {
          />
        </label>
        </Box>
-       <Box>
+       <Box mb="2">
        <label htmlFor="Restaurant Location">
-         Restaurant Location
+       <Text>Restaurant Location</Text>
          <input 
               id="name"
               value={location}
@@ -58,7 +65,18 @@ const AddRestaurant = () => {
          />
        </label>
        </Box>
-       <button style={{margin : '10px'}}>Submit</button>
+       <Box mb="2">
+       <label htmlFor="Restaurant Image">
+       <Text>Restaurant Image</Text>
+         <input 
+              id="image"
+              value={imageURL}
+              placeholder="Enter Restaurant Image URL"
+              onChange={(e) => setImageURL(e.target.value)}
+         />
+       </label>
+       </Box>
+       <Button colorScheme='blue' type="submit">Submit</Button>
      </form>
    </div>
   );

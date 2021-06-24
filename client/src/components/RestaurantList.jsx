@@ -1,11 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import  {RestaurantURL}  from "../apis/RestaurantFinder";
 import { RestaurantContext } from "../context/RestaurantContext";
-import DisplayRestaurant from '../components/DisplayRestaurant.js';
+import DisplayRestaurant from '../components/DisplayRestaurant';
 import { Flex, Box } from "@chakra-ui/layout";
 
 const RestaurantList = () => {
   const { restaurants, setRestaurants } = useContext(RestaurantContext)
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -30,6 +31,7 @@ const RestaurantList = () => {
                           name={rest.name} 
                           location={rest.location} 
                           price={rest.price}
+                          imageURL={rest.image}
               />)
       }
     </Box>

@@ -19,9 +19,10 @@ export const getOrder = async(req, res) => {
 export const postOrder = async(req, res) => {
 
     try {
-        const { orderAmount, productName, price } = req.body;
+        const { orderAmount, productName, price, orderedBy } = req.body;
 
         const order = new Orders({
+            orderedBy: orderedBy,
             productName: productName,
             orderAmount: orderAmount,
             foodPrice: price,

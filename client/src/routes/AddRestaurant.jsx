@@ -5,11 +5,10 @@ import {Button, Box, Flex, Text} from '@chakra-ui/react';
 const UpdatePage = () => {
   return (
         <div>
-          <Box >
-            <Flex direction='column'>
+          <Box m="11em" >
+            <Flex direction='column' flexWrap= 'wrap' alignContent= 'space-around'>
             <AddRestaurant />
-            <Text>Restaurant Update Page</Text>
-            {/* <button onClick={() => {
+              {/* <button onClick={() => {
               history.push('/');
             }}>Go Back Home</button> */}
             <Link to='/'>

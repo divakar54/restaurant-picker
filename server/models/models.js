@@ -6,6 +6,7 @@ const restaurantSchema = new Schema({
   name: String,
   price: Number,
   location: String,
+  image: String,
   review: [
     {
       title: String,
@@ -20,9 +21,15 @@ const restaurantSchema = new Schema({
     items: [String],
     prices: [Number],
   },
+  cuisines: [
+    {
+      name: String
+    }
+  ]
 });
 
 const orderSchema = new Schema({
+  orderedBy : String,
   orderId: {
     type: String,
     default: function getUUId() {
@@ -37,6 +44,13 @@ const orderSchema = new Schema({
   productName: String,
   foodPrice: Number,
 });
+
+const UserSchema = new Schema({
+  name : String,
+  userName : String,
+  phoneNumber : String,
+  email : String,
+})
 
 const Orders = mongoose.model("Orders", orderSchema);
 const Restaurant = mongoose.model("Restaurant", restaurantSchema);

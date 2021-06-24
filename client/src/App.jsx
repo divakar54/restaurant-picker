@@ -1,14 +1,14 @@
+import { ChakraProvider } from '@chakra-ui/react';
 import React from "react";
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import AddOrders from "./components/AddOrders";
+import ShowOrders from "./components/ShowOrders";
+import { RestaurantContextProvider } from "./context/RestaurantContext";
+import AddRestaurant from "./routes/AddRestaurant";
 import Home from "./routes/Home";
 import RestaurantDetail from "./routes/RestaurantDetail";
-import AddPage from "./routes/AddPage";
 import './styles.css';
-import { RestaurantContextProvider } from "./context/RestaurantContext";
-import {ChakraProvider} from '@chakra-ui/react'
-import ShowOrders from "./components/ShowOrders";
-import AddOrders from "./components/AddOrders";
-
+import Header from './components/Header';
 const App = () => {
   
   return (
@@ -16,15 +16,16 @@ const App = () => {
       <RestaurantContextProvider>
         <div >
           <Router>
+            <Header />
               <Switch>
-                <Router>
+                <Route exact path='/order/add'>
                   <AddOrders />
-                </Router>
-                <Router exact path='/orders'>
+                </Route>
+                <Route exact path='/orders'>
                   <ShowOrders />
-                </Router>
+                </Route>
                 <Route exact path='/restaurants/add'>
-                  <AddPage />
+                  <AddRestaurant />
                 </Route>
                 <Route exact path='/restaurants/:id'>
                   <RestaurantDetail />

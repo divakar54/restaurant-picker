@@ -24,14 +24,15 @@ export const getRestaurantWithId = async(req, res) => {
 }
 
 export const addRestaurant = async(req, res) => {
-    const  {name, price, location} = req.body;
+    const  {name, price, location, image} = req.body;
 
     try {
 
        const restaurant = new Restaurant({
            name: name,
            price: price,
-           location: location
+           location: location,
+           image: image
        })
 
        await restaurant.save()

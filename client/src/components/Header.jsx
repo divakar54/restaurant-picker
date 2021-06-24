@@ -1,13 +1,27 @@
 import React from "react";
-import { Box } from '@chakra-ui/react'
+import { Box, Flex } from '@chakra-ui/react';
+import { Link } from "react-router-dom";
+import './headerStyle.css'
 const Header = () => {
   return (
     <div className="header">
+      <Box fontSize="2xl" margin='auto' textAlign='center'>
       <header>
-        <Box fontSize="6xl" margin='auto' textAlign='center'>
-          <h1>Restaurant Finder</h1>
-        </Box>
+        <Flex justifyContent="space-between">
+          <Link to='/'>
+            <h1 className="navbar-title">Restaurant Finder</h1>
+          </Link> 
+          <nav>
+            <ul className="navbar">
+              <Flex justifyContent="space-between" >
+                <li>Log In</li>
+                <li>Sign up</li>
+              </Flex>
+            </ul>
+          </nav>
+        </Flex>
       </header>
+      </Box>
     </div>
   );
 };

@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import { OrderURL } from '../apis/RestaurantFinder';
-
+import OrderDetails from './OrderDetails';
 export default function ShowOrders() {
-    const [orders, setOrders] = useState('');
+    const [orders, setOrders] = useState([]);
 
     const fetchOrders = async() => {
         try {
             const res = await OrderURL.get("/")
-            console.log(res)
-            // setOrders(res.data);
+            // console.log(res.data)
+            setOrders(res.data);
         } catch (error) {
             console.log(error)
         }
@@ -20,7 +20,9 @@ export default function ShowOrders() {
 
     return (
         <div>
-            <p>This is orders page</p>
+            {
+                orders.map(order => <OrderDetails order={order} key={order.orderId}/>)
+            }
         </div>
     )
 }

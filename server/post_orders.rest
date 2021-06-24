@@ -1,8 +1,10 @@
-POST http://localhost:3001/api/v1/orders
+POST http://localhost:3001/api/v1/restaurants
 Content-Type: application/json
 
 {
-    "orderAmount" : "12", 
-    "productName" : "Oregano", 
-    "price" : "120"
+    "name":"Divakar",
+    "price":"2121",
+    "location":"ballabgarh",
+    "image":"http:124locahs"
+
 }
