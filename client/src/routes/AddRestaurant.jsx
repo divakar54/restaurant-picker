@@ -12,7 +12,7 @@ const UpdatePage = () => {
               history.push('/');
             }}>Go Back Home</button> */}
             <Link to='/'>
-            <Button colorScheme='blue' mt={2} mb={2}>Go Back Home</Button>
+            <Button ml="6" colorScheme='blue' mt={2} mb={2}>Go Back Home</Button>
             </Link>
             </Flex>
           </Box>

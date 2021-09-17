@@ -17,15 +17,13 @@ const restaurantSchema = new Schema({
       },
     },
   ],
-  menu: {
-    items: [String],
-    prices: [Number],
-  },
-  cuisines: [
+  menu: [
     {
-      name: String
+      items: String,
+      prices: Number,
     }
-  ]
+  ],
+  cuisines: [String]
 });
 
 const orderSchema = new Schema({

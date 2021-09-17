@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {RestaurantURL} from "../apis/RestaurantFinder";
-import {Box, Flex, Button, Text} from '@chakra-ui/react';
+import {Box, Flex, Button, Text, Checkbox, CheckboxGroup, HStack} from '@chakra-ui/react';
+import './headerStyle.css';
 
 const AddRestaurant = () => {
 
@@ -8,7 +9,8 @@ const AddRestaurant = () => {
   const [price, setPrice] = useState('');
   const [location, setLocation] = useState('');
   const [imageURL, setImageURL] = useState('');
-
+  const [cuisine, setCuisine] = useState([]);
+  console.log(cuisine);
   const handleOnSubmit = async() => {
     
       const res = await RestaurantURL.post('/', {
@@ -26,7 +28,7 @@ const AddRestaurant = () => {
   }
   
   return (
-   <div>
+   <div className="addRestaurant-form">
      <form onSubmit={e => {
        e.preventDefault();
        
@@ -76,6 +78,31 @@ const AddRestaurant = () => {
          />
        </label>
        </Box>
+       <CheckboxGroup 
+                    defaultValue={["North Indian", "South Indian", "Chinese", "Mughlai"]}
+                    >
+         <HStack pl={2} mb={3}>
+            <Checkbox 
+                    onChange={e => e.target.checked ? setCuisine([...cuisine, e.target.value]) : null} 
+                    value="North Indian" name="North Indian" defaultIsChecked={false}>
+                      North Indian
+            </Checkbox>
+            <Checkbox 
+                    onChange={e => e.target.checked ? setCuisine([...cuisine, e.target.value]) : null} 
+                    value="South Indian" name="South Indian" defaultIsChecked={false}>
+                      South Indian
+            </Checkbox>
+            <Checkbox 
+                    onChange={e => e.target.checked ? setCuisine([...cuisine, e.target.value]) : null} 
+                    value="Chinese" name="Chinese" isChecked={false}>
+                      Chinese
+            </Checkbox>
+            <Checkbox 
+                    onChange={e => e.target.checked ? setCuisine([...cuisine, e.target.value]) : null} 
+                    value="Mughlai" name="Mughlai">Mughlai
+            </Checkbox>
+         </HStack>
+        </CheckboxGroup>
        <Button colorScheme='blue' type="submit">Submit</Button>
      </form>
    </div>

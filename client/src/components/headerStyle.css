@@ -18,3 +18,13 @@ li{
     margin-left: 1em;
     font-weight: 700;
 }
+
+
+
+.addRestaurant-form {
+    padding: 2em;
+}
+
+.addRestaurant-form input, p{
+    padding: 0.50em;
+}

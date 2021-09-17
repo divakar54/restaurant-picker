@@ -26,7 +26,6 @@ export const postOrder = async(req, res) => {
             productName: productName,
             orderAmount: orderAmount,
             foodPrice: price,
-           
         })
 
         await order.save()
